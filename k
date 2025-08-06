@@ -1,0 +1,38 @@
+//linl: https://codeforces.com/contest/2130/problem/A
+import java.util.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	 Scanner sc = new Scanner(System.in);
+        
+        int t = sc.nextInt();         
+        while (t-- > 0) {
+            int n = sc.nextInt();     
+            int[] S = new int[n];
+            for (int i = 0; i < n; i++) {
+                S[i] = sc.nextInt(); 
+            }
+            
+            int sum=0;
+
+        for(int k : S)
+        {
+              if(k==0)
+              {
+                sum+=1;
+              }
+              else{
+                sum+=k;
+              }
+        }
+    
+        System.out.println(sum);
+
+        }
+        
+        sc.close();
+	}
+}
