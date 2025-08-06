@@ -1,0 +1,16 @@
+//link: https://codeforces.com/problemset/problem/339/A
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class sum {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        String s=sc.next().trim();
+        String[] parts =s.split("\\+");
+        sc.close();
+        Arrays.sort(parts);
+        String joined = String.join("+", parts);
+        System.out.println(joined);
+    }
+}
