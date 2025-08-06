@@ -1,0 +1,70 @@
+//link: https://www.codechef.com/problems/CUREX
+import java.util.*;
+
+import java.lang.*;
+
+import java.io.*;
+
+
+
+class Codechef
+
+{
+
+	public static void main (String[] args) throws java.lang.Exception
+
+	{
+
+	 Scanner sc = new Scanner(System.in);
+
+
+
+        
+
+        int T = sc.nextInt();
+
+        while (T-- > 0) {
+
+          
+            int A1 = sc.nextInt();
+
+            int B1 = sc.nextInt();
+
+            int A2 = sc.nextInt();
+
+            int B2 = sc.nextInt();
+
+          
+
+            int sum1=A1*5+B1;
+
+            int sum2=A2*5+B2;
+
+            double x=(sum1-sum2)/6.0;
+
+            if(sum1>=sum2 && x == Math.floor(x))
+
+            {
+
+                 System.out.println("YES");
+
+            }
+
+            else{
+
+                System.out.println("NO");
+
+            }
+
+        }
+
+
+
+        sc.close();
+
+
+
+	}
+
+}
+
