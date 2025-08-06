@@ -1,0 +1,91 @@
+//link: https://www.codechef.com/problems/DECDISC
+import java.util.*;
+
+import java.lang.*;
+
+import java.io.*;
+
+
+
+class Codechef
+
+{
+
+	public static void main (String[] args) throws java.lang.Exception
+
+	{
+
+	    Scanner sc = new Scanner(System.in);
+
+        
+
+        // Number of test cases
+
+        int T = sc.nextInt();
+
+        while (T-- > 0) {
+
+            int s=0;
+
+     
+
+        int min=Integer.MAX_VALUE;
+
+
+
+            // Number of vases
+
+            int N = sc.nextInt();
+
+            
+
+            // Prices of the vases
+
+            int[] A = new int[N];
+
+            for (int i = 0; i < N; i++) {
+
+                A[i] = sc.nextInt();
+
+            }
+
+            
+
+
+
+            
+
+            for (int i = 0; i < N-1; i++)
+
+            {   s=A[i]+(A[i+1])/2;
+
+                
+
+                min = Math.min(min,s );
+
+            }
+
+            Arrays.sort(A);
+
+            int sumk=A[0]+A[1];
+
+            int y=Math.min(min,sumk);
+
+            System.out.println(y);
+
+            
+
+        }
+
+       
+
+       
+
+      
+
+        sc.close();
+
+	}
+
+}
+
