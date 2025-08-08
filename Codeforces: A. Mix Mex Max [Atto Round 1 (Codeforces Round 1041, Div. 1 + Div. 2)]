@@ -1,0 +1,61 @@
+//link: https://codeforces.com/contest/2127/problem/A
+def mex(lst):
+    seen = set(lst)
+    m = 0
+    while True:
+        if m not in seen:
+            return m
+        m += 1
+
+def trt(a, n):
+    c=0
+    for i in range(n-2):
+        
+       
+
+       
+
+        if -1 in (a[i], a[i+1], a[i+2]):
+           
+            x = max(a)
+            if x==-1:
+                x=1 
+           
+            a[:] = [x if val == -1 else val for val in a]
+
+          
+           
+         
+
+
+        if -1 not in (a[i], a[i+1], a[i+2]):    
+            mex0 = mex([a[i], a[i+1], a[i+2]])
+            max0 = max([a[i], a[i+1], a[i+2]])
+            min0 = min([a[i], a[i+1], a[i+2]])
+
+            if mex0 == max0 - min0:
+              c=c+1
+            else:
+              c=c
+    if c == (n-2):
+        return 1
+    else:
+        return 0
+         
+
+def main():
+    import sys
+    input = sys.stdin.readline
+    t = int(input())
+    for _ in range(t):
+        n0 = int(input())
+        a0 = list(map(int, input().split()))
+        ans = trt(a0, n0)
+      
+        if ans == 1:
+            print("YES")
+        else:
+            print("NO")
+
+if __name__ == "__main__":
+    main()
