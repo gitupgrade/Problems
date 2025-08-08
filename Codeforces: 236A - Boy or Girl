@@ -1,0 +1,27 @@
+//link: https://codeforces.com/problemset/problem/236/A
+import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class boyorgirl {
+    public static void main(String[] args) {
+        List<Character> c = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        sc.close();
+        for (int i = 0; i < s.length(); i++) {
+            if (c.contains(s.charAt(i)) == false) {
+                c.add(s.charAt(i));
+            }
+        }
+        if (c.size() % 2 == 0) {
+            System.out.println("CHAT WITH HER!");
+
+        } else {
+            System.out.println("IGNORE HIM!");
+
+        }
+
+    }
+
+}
