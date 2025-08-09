@@ -1,0 +1,26 @@
+//link: https://codeforces.com/problemset/problem/263/A
+import java.util.Scanner;
+
+public class mat {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int r = 0;
+        int c = 0;
+
+        for (int k = 1; k <= 5; k++) {
+            for (int j = 1; j <= 5; j++) {
+                int num = sc.nextInt();
+                if (num == 1) {
+                    c = j;
+                    r = k;
+
+                }
+            }
+        }
+        int r0 = Math.abs(3 - r);
+        int c0 = Math.abs(3 - c);
+        sc.close();
+
+        System.out.println((r0 + c0));
+    }
+}
