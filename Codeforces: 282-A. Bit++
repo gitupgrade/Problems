@@ -1,0 +1,24 @@
+//link: https://codeforces.com/problemset/problem/282/A
+import java.util.Scanner;
+
+public class bit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        int k = 0;
+        for (int i = 0; i < n; i++) {
+            String s = sc.next();
+            if (s.equalsIgnoreCase("X++") || s.equalsIgnoreCase("++X")) {
+                k = k + 1;
+            }
+            if (s.equalsIgnoreCase("X--") || s.equalsIgnoreCase("--X")) {
+                k = k - 1;
+            }
+
+        }
+        sc.close();
+        System.out.println(k);
+
+    }
+}
