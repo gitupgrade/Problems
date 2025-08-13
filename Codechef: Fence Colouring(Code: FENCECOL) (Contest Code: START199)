@@ -1,0 +1,113 @@
+//link: https://www.codechef.com/problems/FENCECOL
+import java.util.*;
+
+import java.lang.*;
+
+import java.io.*;
+
+
+
+class Codechef
+
+{
+
+	public static void main (String[] args) throws java.lang.Exception
+
+	{
+
+	 Scanner sc = new Scanner(System.in);
+
+
+
+        int T = sc.nextInt();
+
+
+
+        for (int tc = 0; tc < T; tc++) {
+
+            int n = sc.nextInt();
+
+            int c=0;
+
+            int[] var1 = new int[n];
+
+            for (int i = 0; i < n; i++) {
+
+                var1[i] = sc.nextInt();
+
+                if(var1[i]==1)
+
+                {
+
+                    c=c+1;
+
+                }
+
+            }
+
+            Map<Integer, Integer> freq = new HashMap<>();
+
+
+
+            for (int x : var1) {
+
+                freq.put(x, freq.getOrDefault(x, 0) + 1);
+
+            }
+
+
+
+            int sum=0;
+
+            int t = 0;
+
+            int s=0;
+
+            for (Integer v : freq.values()) {
+
+                if (v != null)
+
+                    sum += v;
+
+                if (v > t) {
+
+                    t = v;
+
+                }
+
+            }
+
+            sum = sum - t;
+
+            if(c>0)
+
+            {
+
+                 s = freq.get(1);
+
+
+
+            }
+
+           
+
+            if (s != t) {
+
+                sum = sum + 1;
+
+            }
+
+            System.out.println(sum);
+
+
+
+        }
+
+
+
+        sc.close();
+
+	}
+
+}
+
