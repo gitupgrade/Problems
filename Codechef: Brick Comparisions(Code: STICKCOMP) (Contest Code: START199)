@@ -1,0 +1,27 @@
+//link: https://www.codechef.com/problems/STICKCOMP
+
+
+
+
+T = int(input().strip())
+
+for _ in range(T):
+
+    N = int(input().strip())
+
+   
+
+    arr = []
+
+    while len(arr) < N:
+
+        arr.extend(map(int, input().strip().split()))
+
+ 
+
+    val = max(arr)   
+
+    e=arr.index(val)+1
+
+    print(e)
+
