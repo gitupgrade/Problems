@@ -1,0 +1,45 @@
+//link: https://www.codechef.com/problems/CAKEMAKE
+import java.util.*;
+
+import java.lang.*;
+
+import java.io.*;
+
+
+
+class Codechef
+
+{
+
+	public static void main (String[] args) throws java.lang.Exception
+
+	{
+
+	
+
+        Scanner sc = new Scanner(System.in);
+
+
+
+        int A = sc.nextInt();
+
+        int B = sc.nextInt();
+
+        int c=Math.min(A,B);
+
+        int d=(A*B)-c;
+
+       
+
+        System.out.println(d);
+
+
+
+        sc.close();
+
+
+
+	}
+
+}
+
