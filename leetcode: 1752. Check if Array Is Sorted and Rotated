@@ -1,0 +1,36 @@
+//link: https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/
+class Solution {
+    public boolean check(int[] nums) {
+        int[] a = nums;
+        int[] b = new int[a.length];
+        boolean broke0 = false;
+        for (int x = 0; x < a.length; x++) {
+            for (int i = 0; i < a.length; i++) {
+                b[i] = a[(i + x) % a.length];
+            }
+
+            int m = Integer.MIN_VALUE;
+            boolean broke = false;
+            for (int j = 0; j < a.length; j++) {
+                m = Math.max(m, b[j]);
+                if (b[j] != m) {
+
+                    broke = true;
+                    break;
+                }
+
+            }
+            if (!broke) {
+                broke0 = true;
+                return true;
+
+
+            }
+
+        }
+
+        return false;
+
+
+    }
+}
