@@ -1,0 +1,62 @@
+//link: https://www.codechef.com/problems/FLOWERBUY
+
+import java.util.*;
+
+import java.lang.*;
+
+import java.io.*;
+
+
+
+class Codechef
+
+{
+
+	public static void main (String[] args) throws java.lang.Exception
+
+	{
+
+	   Scanner sc = new Scanner(System.in);
+
+         int T=sc.nextInt();
+
+         for(int i=1;i<=T;i++)
+
+         { 
+
+
+
+            int N=sc.nextInt();
+
+            int k=N/3;
+
+            int x=N%3;
+
+            int g=x/2;
+
+            int h=x%2;
+
+            int s=(k*5)+(g*4)+(h*4);
+
+            if(h==1)
+
+            {
+
+                 s=s-1;
+
+            }
+
+            
+
+            System.out.println(s);
+
+
+
+
+
+         }
+
+	}
+
+}
+
