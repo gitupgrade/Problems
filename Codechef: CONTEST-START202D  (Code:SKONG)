@@ -1,0 +1,37 @@
+//link:https://www.codechef.com/problems/SKONG?tab=statement
+import java.util.*;
+
+import java.lang.*;
+
+import java.io.*;
+
+
+
+class Codechef
+
+{
+
+	public static void main (String[] args) throws java.lang.Exception
+
+	{
+
+		Scanner sc = new Scanner(System.in);
+
+        int X=sc.nextInt();
+
+        int H=sc.nextInt();
+
+        sc.close();
+
+        int d=(X-4)*24;
+
+        int s=d+H;
+
+        System.out.println(s);
+
+
+
+	}
+
+}
+
