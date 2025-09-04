@@ -1,0 +1,72 @@
+//link:https://www.codechef.com/problems/TWOROLL
+
+import java.util.Scanner;
+
+
+
+class Codechef {
+
+
+
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in);
+
+
+
+        int T = sc.nextInt();
+
+       
+
+         for (int a = 1; a <= T; a++) {
+
+            int k = 0;
+
+            int X = sc.nextInt();
+
+            int Y = sc.nextInt();
+
+            int l=Y+5;
+
+            outer :for (int i = Y; i <= l; i++) {
+
+                for (int j = Y; j <= l; j++) {
+
+                    int s = X + i + j;
+
+                    if (s == 50) {
+
+                        k = k + 1;
+
+                        break outer;
+
+                    }
+
+                }
+
+
+
+            }
+
+
+
+            if (k >= 1) {
+
+                System.out.println("Yes");
+
+
+
+            } else if (k == 0) {
+
+                System.out.println("No");
+
+            }
+
+        }
+
+
+
+    }
+
+}
+
