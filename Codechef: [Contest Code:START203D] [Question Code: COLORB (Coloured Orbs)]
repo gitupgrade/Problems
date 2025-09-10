@@ -1,0 +1,23 @@
+//link: https://www.codechef.com/START203D/problems/COLORB
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	 Scanner sc = new Scanner(System.in);
+        int R=sc.nextInt();
+        int B=sc.nextInt();
+          if(R>B)
+          {
+            System.out.println(((R-B)*1+B*5));
+          }
+          else{
+            System.out.println(((B-R)*2+R*5));
+          }
+
+	}
+}
