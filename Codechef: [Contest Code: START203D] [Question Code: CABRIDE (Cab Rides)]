@@ -1,0 +1,43 @@
+//link: 
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	Scanner sc = new Scanner(System.in);
+        int T=sc.nextInt();
+       int sum0=0;
+        for(int i=0;i<T;i++)
+        {       int n=sc.nextInt();
+         
+          if(n==1||n==2)
+          {System.out.println(200);
+             continue;
+          }
+          if(n==3)
+          {System.out.println(300);
+              continue;
+          }
+           int q=n/4;
+          int r=n%4;
+          sum0=q*400;
+          if(r==1)
+          {
+            sum0+=100;
+          }
+          else if(r==2){
+            sum0+=200;
+          }
+          else if(r==3)
+          {
+              sum0=sum0+300;
+          }
+          System.out.println(sum0);
+    
+        }
+
+	}
+}
