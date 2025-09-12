@@ -1,0 +1,22 @@
+//link: https://leetcode.com/problems/sqrtx/description/
+class Solution {
+    public int mySqrt(int x) {
+          int n=x;
+        int low=1;
+        int high=n;
+        while(low<=high)
+        {
+              int mid= low + (high - low)/2;
+              long val=1L*mid*mid;
+              if(val<=(long)n)
+              {
+                low=mid+1;
+              }
+             
+              else{
+                high=mid-1;
+              }
+        }
+        return high;
+    }
+}
