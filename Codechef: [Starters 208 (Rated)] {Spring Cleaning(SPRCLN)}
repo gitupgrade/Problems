@@ -1,0 +1,12 @@
+//link: https://www.codechef.com/START208D/problems/SPRCLN
+#include <iostream>
+using namespace std;
+
+
+int main()
+{ int s;
+int l;
+    cin>>s;
+    cin>>l;
+    cout<<(s*30+l*60);
+}
