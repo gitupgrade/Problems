@@ -1,0 +1,31 @@
+//link: https://www.codechef.com/problems/GUCD
+#include <bits/stdc++.h>
+
+using namespace std;
+int main()
+{  int maxi;
+    int T;
+    cin >> T;
+    while (T--)
+    {maxi=0;
+        int n;
+
+        cin >> n;
+        vector < int > a(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> a[i];
+        }
+          sort(a.begin(), a.end());                        
+    int highest=a[n-1];
+    int lowest=a[0];
+    if((highest-lowest)==1)
+    {
+        cout<<(highest-2)<<endl;
+    }
+    else{
+         cout<<(highest-1)<<endl;
+    }
+    }
+    return 0;
+}
