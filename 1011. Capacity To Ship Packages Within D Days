@@ -1,0 +1,52 @@
+//link: https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+class Solution {
+public:
+bool check(vector<int>& a,int l,int days)
+{
+    int daye=1;
+    int sum=0;
+    for(int i=0;i<a.size();i++)
+    {
+        if(a[i]+sum>l)
+        {
+            daye=daye+1;
+             sum=0;
+              if(daye>days)
+              {
+                return false;
+              }
+           
+
+        }
+      
+           
+            sum=sum+a[i];
+           
+       
+        
+    }
+     return daye<=days;
+   
+};
+    int shipWithinDays(vector<int>& weights, int days) {
+        
+    int mx = *max_element(weights.begin(), weights.end());
+    long long sum = accumulate(weights.begin(), weights.end(), 0LL);
+    int low=mx;
+    int high=sum;
+    int mid;
+    while(low<=high)
+    { mid=low+(high-low)/2;
+       
+       if(check(weights,mid,days))
+       {
+        high=mid-1;
+       }
+       else{
+        low=mid+1;
+       }
+            
+    }
+    return low;
+    }
+};
