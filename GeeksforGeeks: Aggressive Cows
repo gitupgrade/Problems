@@ -1,0 +1,45 @@
+//link: https://www.geeksforgeeks.org/problems/aggressive-cows/1
+class Solution {
+  public:
+  bool check(vector <int>& arr,int dist, int cows)
+{    int last=arr[0];
+    int  count=1;
+    for(int i=1;i<arr.size();i++)
+    {
+        if(arr[i]-last>=dist)
+        {   
+        
+              count++;
+              last=arr[i];
+              
+        }
+        if(count>=cows)
+              {
+                return true;
+              }
+
+    }
+    return false;
+
+}
+    int aggressiveCows(vector<int> &stalls, int k) {
+       sort(stalls.begin(),stalls.end());
+  int n;
+  n=stalls.size();
+  int low=1;  int high=stalls[n-1]-stalls[0];
+  while(low<=high)
+  {
+    int mid=low+(high-low)/2;
+    if(check(stalls,mid,k)==true)
+    {
+        low=mid+1;
+    }
+    else{
+        high=mid-1;
+    }
+
+  }
+  return high;
+        
+    }
+};
