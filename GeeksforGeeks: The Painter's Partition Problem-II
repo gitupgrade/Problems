@@ -1,0 +1,39 @@
+//link: https://www.geeksforgeeks.org/problems/the-painters-partition-problem1535/1
+class Solution {
+  public:
+  int check(vector<int>& num,int mid)
+{
+    int count=1;
+    int sum=0;
+    for(int i=0;i<num.size();i++)
+    {
+        if(num[i]+sum<=mid)
+        {
+            sum+=num[i];
+        }
+        else
+        {
+            count++;
+            sum=num[i];
+        }
+    }
+    return count;
+}
+    int minTime(vector<int>& arr, int k) {
+        int n=arr.size();
+        int low=*max_element(arr.begin(), arr.end());
+        int high=accumulate(arr.begin(), arr.end(),0);
+        while(low<=high)
+        {
+            int mid=low+(high-low)/2;
+            if(check(arr,mid)>k)
+            {
+              low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return low;
+    }
+};
