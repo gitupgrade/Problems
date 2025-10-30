@@ -1,0 +1,18 @@
+//link: https://leetcode.com/problems/largest-odd-number-in-string/
+class Solution {
+    public String largestOddNumber(String num) {
+        int n=num.length();
+        StringBuilder sb = new StringBuilder(num);
+        for(int i=n-1;i>=0;i--)
+        {    char c=sb.charAt(i);
+            int digit = c - '0'; 
+            if(digit%2==1)
+            {   String e = sb.toString();
+                return e;
+            }
+            sb.deleteCharAt(sb.length() - 1);
+        }
+       
+        return "";
+    }
+}
