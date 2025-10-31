@@ -1,0 +1,39 @@
+//link: https://leetcode.com/problems/isomorphic-strings/description/
+class Solution {
+public:
+   
+    bool check(string s,string t)
+    {
+           unordered_map<char, char> map;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s[i];
+            if (map.find(c) == map.end()) {
+
+                map[c] = t[i];
+            } else {
+                char c = s[i];
+                char value = map.at(c);
+                if (value != t[i]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    bool isIsomorphic(string s, string t) {
+       
+        bool a= check(t, s);
+        bool b= check(s, t);
+        if(a==true && b==true)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+           
+        
+
+    }
+};
