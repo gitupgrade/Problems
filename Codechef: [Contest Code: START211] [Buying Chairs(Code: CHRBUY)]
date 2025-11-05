@@ -1,0 +1,51 @@
+//link: https://www.codechef.com/problems/CHRBUY
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+int main() {
+
+    int T;
+
+	cin>>T;
+
+    while(T--)
+
+    {  int ans=0;
+
+        int w;
+
+        int p;
+
+        int k;
+
+        cin>>w;
+
+         cin>>p;
+
+          cin>>k;
+
+          if(k<=w)
+
+          {
+
+            ans=k*2;
+
+          }
+
+          else if(k>w){
+
+            ans=w*2+(k-w);
+
+          }
+
+          cout<<ans<<endl;
+
+    }
+
+
+
+}
+
