@@ -1,0 +1,71 @@
+//link: https://codeforces.com/contest/2164/problem/C
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int main()
+{
+    int T;
+    cin >> T;
+    while (T--)
+    {
+        int n, m;
+        cin >> n >> m;
+        multiset<ll> sw;
+        for (int i = 0; i < n; i++)
+        {
+            ll x;
+            cin >> x;
+            sw.insert(x);
+        }
+
+        vector<pair<ll, ll>> monsters(m);
+        for (int i = 0; i < m; i++)
+        {
+            cin >> monsters[i].first;
+        }
+        for (int i = 0; i < m; i++)
+        {
+            cin >> monsters[i].second;
+        }
+
+        sort(monsters.begin(), monsters.end(), [](const pair<ll, ll> &A, const pair<ll, ll> &B)
+             {
+       if(A.first!=B.first) return A.first<B.first;
+       return A.second<B.second; });
+        int k = 0;
+        for (auto &mon : monsters)
+        {
+            ll b = mon.first;
+            ll c = mon.second;
+            if (c == 0)
+                continue;
+            auto it = sw.lower_bound(b);
+            if (it == sw.end())
+                break;
+            ll x = *it;
+            sw.erase(it);
+            sw.insert(max(x, c));
+            k++;
+           
+        }
+         for (auto &mon : monsters)
+        {
+            ll b = mon.first;
+            ll c = mon.second;
+            if (c != 0)
+                continue;
+            auto it = sw.lower_bound(b);
+            if (it == sw.end())
+                break;
+          
+            sw.erase(it);
+          
+            k++;
+           
+        }
+
+        cout << k << endl;
+    }
+    return 0;
+}
