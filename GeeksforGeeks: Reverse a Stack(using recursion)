@@ -1,0 +1,32 @@
+//link:https://www.geeksforgeeks.org/problems/reverse-a-stack/1
+class Solution {
+  public:
+  void insert(stack<int>& st, int element) {
+  
+    if (st.empty() ) {
+        st.push(element);
+        return;
+    }
+
+    int topElement = st.top();
+    st.pop();
+
+    insert(st, element);
+
+    st.push(topElement); 
+    return; 
+    
+}
+    void reverseStack(stack<int> &st) {
+      if (st.empty())
+        return;
+
+    int topElement = st.top();
+    st.pop();
+
+    reverseStack(st);
+
+    insert(st, topElement);
+        
+    }
+};
