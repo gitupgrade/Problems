@@ -1,0 +1,33 @@
+//link: https://www.codechef.com/START225D/problems/ALLEV?tab=statement
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int T;
+	cin>>T;
+	int val;
+
+
+	int sum;
+	int N;
+	while(T--)
+	{
+	    
+	    
+	    sum=0;
+	    cin>>N;
+	    while(N--)
+	    {  
+	        cin>>val;
+	        sum=sum+val;
+	    }
+	    if(sum%2!=0)
+	    {
+	        cout<<"NO\n";
+	    }
+	    else{
+	        cout<<"YES\n";
+	    }
+	}
+
+}
