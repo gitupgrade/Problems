@@ -1,0 +1,48 @@
+//link: https://www.codechef.com/START225D/problems/MXSCWN
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int N;
+    int T;
+    cin >> T;
+
+
+
+
+    while (T--)
+    {
+        int sum = 0;
+        int N;
+        int ati=0;
+        int diff=0;
+        int temp = INT_MAX;
+        vector < int > a;
+        vector < int > b;
+        cin >> N;
+        for (int i = 0; i < N; i++){
+            int x;
+            cin >> x;
+            a.push_back(x);
+        }
+        for (int i = 0; i < N; i++) {
+            int x;
+            cin >> x;
+            b.push_back(x);
+        }
+        for (int i = 0; i < N; i++) {
+            diff = a.at(i) - b.at(i);
+            if (diff < temp)
+            {
+                temp = diff;
+                ati=i;
+            }
+        }
+        sum = accumulate(a.begin(), a.end(), 0LL);
+        int ans=sum-a.at(ati)+b.at(ati);
+
+       cout<<ans<<"\n";
+    }
+
+}
