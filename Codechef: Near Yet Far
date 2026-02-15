@@ -1,0 +1,64 @@
+//link: https://www.codechef.com/problems/NOADJK
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+int main()
+{
+    int T;
+    if (!(cin >> T))
+        return 0;
+    while (T--)
+    {
+        int N, K;
+        cin >> N >> K;
+        vector<ll> v(N + 1);
+        for (int i = 1; i <= N; i++)
+        {
+            cin >> v[i];
+        }
+
+        if (K == 2)
+        {
+            ll minOdd = LLONG_MAX, maxOdd = LLONG_MIN;
+            ll minEven = LLONG_MAX, maxEven = LLONG_MIN;
+            for (int i = 01; i <= N; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    minOdd = min(minOdd, v[i]);
+                    maxOdd = max(maxOdd, v[i]);
+                }
+                else
+                {
+                    minEven = min(minEven, v[i]);
+                    maxEven = max(maxEven, v[i]);
+                }
+            }
+            ll ans = 0;
+            ans = max(ans, maxOdd - minOdd);
+            ans = max(ans, maxEven - minEven);
+            cout << ans << '\n';
+        }
+        else
+        {
+            vector<ll> prefMin(N + 1), prefMax(N + 1);
+            prefMin[1] = v[1];
+            prefMax[1] = v[1];
+            for (int i = 2; i <= N; i++)
+            {
+                prefMin[i] = min(prefMin[i - 1], v[i]);
+                prefMax[i] = max(prefMax[i - 1], v[i]);
+            }
+            ll best = 0;
+            for (int j = 3; j <= N; j++)
+            {
+                ll mn = prefMin[j - 2];
+                ll mx = prefMax[j - 2];
+                best = max(best, v[j] - mn);
+                best = max(best, mx - v[j]);
+            }
+            cout << best << '\n';
+        }
+    }
+    return 0;
+}
