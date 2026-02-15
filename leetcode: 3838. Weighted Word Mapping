@@ -1,0 +1,35 @@
+//link: https://leetcode.com/problems/weighted-word-mapping/description/
+#include <bits/stdc++.h>
+using namespace std;
+class Solution {
+public:
+     int func(char ch) {  
+        int pos = ch - 'a';  
+        return pos;
+    }
+        
+char func2(int x) {
+    return 'z' - x; 
+}
+    string mapWordWeights(vector<string>& words, vector<int>& weights) {
+     
+string s;
+        
+    for (int i = 0; i < words.size(); i++) {
+       
+        int sum=0;
+           for(int j=0;j<words[i].size();j++)
+               {
+                   sum+=weights[func(words[i][j])];
+                   
+                   
+               }
+        int mod=sum%26;
+        s+=func2(mod);
+        
+        
+    }
+       
+        return s; 
+    }
+};
