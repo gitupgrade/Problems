@@ -1,0 +1,84 @@
+//link:https://www.codechef.com/problems/MAXMODEK
+#include <bits/stdc++.h>
+using namespace std;
+
+static bool canMakeMode(const vector<int>& cnt, int N, int K, int x, int t) {
+    int MAXV=2*N+2;
+    int F=cnt[x]+t;
+    int totalMoves=0;
+    int incoming=0;
+    for(int v=1;v<=MAXV;v++)
+    {
+        long long base=(long long)cnt[v]+incoming;
+        int moveOut=0;
+        if(v==x)
+        {
+            moveOut=0;
+            if(base>F) return false;
+        }else if(v==x-1)
+        {
+            moveOut=t;
+            if(moveOut>cnt[v]) return false;
+            if(base-moveOut>F) return false;
+        }else{
+            long long need=base-F;
+            if(need<0) need=0;
+            if(need>cnt[v]) return false;
+            moveOut=(int)need; 
+        }
+        totalMoves+=moveOut;
+        if(totalMoves>K) return false;
+        incoming=moveOut;
+    }
+    return true;
+
+
+}
+int main()
+{
+     ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        int N,K;
+        cin>>N>>K;
+        int MAXV=2*N+2;
+
+        vector<int> cnt(MAXV+1,0);
+            for (int i = 0; i < N; i++) {
+            int a;
+            cin >> a;
+            cnt[a]++;
+        }
+          int answer = 1;
+
+        for(int x=2*N+1;x>=1;x--)
+        {
+            int lim=((x-1)>=1)? min(cnt[x-1],K):0;
+            bool ok=false;
+            for(int t=0;t<=lim;t++)
+            {
+                if(canMakeMode(cnt,N,K,x,t))
+                {
+                     ok=true;
+                     break;
+                }
+            }
+            if(ok)
+            {
+                  answer = x;
+                break;
+
+            }
+
+
+        }
+
+        cout << answer << "\n";
+
+    }
+    return 0;
+}
