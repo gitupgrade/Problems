@@ -1,0 +1,31 @@
+//link: https://codeforces.com/contest/2202/problem/C1
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T;
+    cin >> T;
+    while (T--)
+    {
+        int n;
+        cin >> n;
+        vector<int> st;
+        int ans=0;
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin>>x;
+            while(!st.empty()&& st.back()!=x-1)
+            {
+                st.pop_back();
+
+            }
+            if(st.empty())
+            {
+                ans++;
+            }
+            st.push_back(x);
+        }
+        cout<<ans<<"\n";
+    }
+}
