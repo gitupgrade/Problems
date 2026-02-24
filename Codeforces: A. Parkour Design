@@ -1,0 +1,22 @@
+link: https://codeforces.com/contest/2202/problem/A
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    int T;
+    cin >> T;
+    while (T--)
+    {
+      int x,y;
+      cin>>x>>y;
+      if(y>=0&&(x-2*y)>=0&&(x-2*y)%3==0||y<0&&(x+4*y)>=0&&(x-2*y)%3==0)
+      {
+          cout<<"YES";
+      }
+      else{
+        cout<<"NO";
+      }
+      cout<<"\n";
+    }
+}
