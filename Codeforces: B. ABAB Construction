@@ -1,0 +1,53 @@
+//link: https://codeforces.com/contest/2202/problem/B
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+
+    int T;
+    cin >> T;
+    while (T--)
+    {
+        int n;
+        string x;
+        string s = "";
+        int i = 0;
+        cin >> n >> x;
+        if (n % 2 != 0)
+        {
+            i = 1;
+
+            if (x.at(0) == 'b')
+            {
+                cout << "NO" << "\n";
+                continue;
+            }
+        }
+        bool flag = true;
+        for (; i < n; i++)
+        {
+            s += x.at(i);
+            if (s.size() == 2)
+            {
+                if (s == "aa" || s == "bb")
+                {
+
+                    flag = false;
+                    break;
+                }
+                else
+                {
+                    s = "";
+                }
+            }
+        }
+        if (flag)
+        {
+            cout << "YES" << "\n";
+        }
+        else
+        {
+            cout << "NO" << "\n";
+        }
+    }
+}
