@@ -1,0 +1,74 @@
+//link: https://codeforces.com/contest/2199/problem/B
+import java.util.Scanner
+import kotlin.math.*
+fun ans(a0: Int, b0: Int, c0: Int, d0: Int): Int {
+        var a=a0
+        var b=b0
+        var c=c0
+        var d=d0
+     if (a==c && b==d) 
+        {
+       return 0
+        }
+        if(a==b)
+        {
+             val m = max(c, d)
+             return m-a
+
+        }
+        if(a<b||b<a)
+        {
+        var m1=max(c,d)
+         var cnt=0;
+        if(a<b)
+        {
+           
+              while(a<b&&a<c)
+            { cnt++
+                  ++a
+            }
+            
+                 if(a==c && a!=b)
+                 {
+                     return d-b+cnt
+                 }
+          
+        }
+        
+        else  if(b<a)
+        {
+            
+              while(b<a&&b<d)
+            { cnt++
+                  ++b
+            }
+            
+                  if(b==d && a!=b)
+                 {
+                     return c-a+cnt
+                 }
+          
+          
+        }
+        return m1-a+cnt;
+        
+        
+        }
+    return 0
+}
+fun main() {
+    val sc = Scanner(System.`in`)
+    var t = sc.nextInt()
+    while (t-- > 0) {
+        
+        var a = sc.nextInt()
+        var b = sc.nextInt()
+        var c = sc.nextInt()
+        var d = sc.nextInt()
+       var result = ans(a,b,c,d)
+         println(result)
+        
+
+     
+    }
+}
