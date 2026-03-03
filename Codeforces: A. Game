@@ -1,0 +1,30 @@
+//link: https://codeforces.com/contest/2199/problem/A
+import java.util.Scanner
+
+fun main() {
+    val sc = Scanner(System.`in`)
+    var t = sc.nextInt()
+    while (t-- > 0) {
+        val k = sc.nextInt()
+        val a1 = sc.nextInt()
+        val b1 = sc.nextInt()
+        val a2 = sc.nextInt()
+        val b2 = sc.nextInt()
+
+        val suma = a1 + a2
+        val sumb = b1 + b2
+
+        if (sumb + k < suma) 
+        {
+        println("NO")
+        }
+        else if (sumb + k == suma && a1 > b1 && a2 > b2)
+        {
+        println("NO")
+        }
+        else 
+        {
+        println("YES")
+        }
+    }
+}
