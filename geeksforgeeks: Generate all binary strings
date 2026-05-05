@@ -1,0 +1,30 @@
+//link: https://www.geeksforgeeks.org/problems/generate-all-binary-strings/1
+class Solution {
+  public:
+   
+   vector<string> v;
+
+void recur(string b1,int n)
+{
+    if(b1.length() == n)
+    {
+        v.push_back(b1);
+        return;
+    }
+
+    recur(b1 + "0",n);
+
+   
+    recur(b1 + "1",n);
+    
+
+    return;
+}
+   
+    vector<string> binstr(int n) {
+         recur("0",n);
+         recur("1",n);
+         return v;
+        
+    }
+};
