@@ -1,0 +1,29 @@
+//https: https://leetcode.com/problems/generate-parentheses/
+class Solution {
+public:
+    vector<string> v;
+
+    void recur(string b1, int n) {
+        if (b1.length() == n * 2) {
+            v.push_back(b1);
+            return;
+        }
+        int a = count(b1.begin(), b1.end(), '(');
+        int b = count(b1.begin(), b1.end(), ')');
+        if (a < n) {
+            recur(b1 + "(", n);
+        }
+
+        if (b < n && b < a) {
+            recur(b1 + ")", n);
+        }
+
+        return;
+    }
+
+    vector<string> generateParenthesis(int n) {
+        recur("(", n);
+
+        return v;
+    }
+};
