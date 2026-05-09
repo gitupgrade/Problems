@@ -63,3 +63,29 @@ public:
         return v;
     }
 };
+
+--------------------------------------------
+class Solution {
+public:
+    vector<int> a;
+    vector<vector<int>> v;
+    void recur(int i, vector<int>& nums, int n) {
+
+        if (i >= n) {
+            v.push_back(a);
+            return;
+        }
+        recur((i + 1), nums, n);
+        a.push_back(nums[i]);
+        recur((i + 1), nums, n);
+        a.pop_back();
+
+        return;
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
+        recur(0, nums, n);
+        return v;
+    }
+};
