@@ -1,0 +1,30 @@
+//link: https://www.geeksforgeeks.org/problems/subset-sums2234/1
+class Solution {
+	public:
+	vector<int> a;
+	vector<int> v;
+	void recur(int i, vector<int>& nums, int n) {
+		
+		if (i >= n) {
+			int sum = 0;
+			
+			for (int i : a) {
+				sum += i;
+			}
+			v.push_back(sum);
+			return;
+		}
+		recur((i + 1), nums, n);
+		a.push_back(nums[i]);
+		recur((i + 1), nums, n);
+		a.pop_back();
+		
+		return;
+	}
+	vector<int> subsetSums(vector<int>& arr) {
+		int n = arr.size();
+		recur(0, arr, n);
+		return v;
+		
+	}
+};
