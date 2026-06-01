@@ -1,0 +1,46 @@
+//file: https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
+class Solution {
+public:
+    void recur(int ind, vector<char>& ds, vector<string>& ans,
+               vector<vector<char>>& alp, int k) {
+
+        if (ds.size() == k) {
+            string s(ds.begin(), ds.end());
+            ans.push_back(s);
+        }
+
+        for (int i = ind; i < alp.size(); i++) {
+
+            for (int i2 = 0; i2 < alp[ind].size(); i2++) {
+                ds.push_back(alp[ind][i2]);
+
+                recur(i + 1, ds, ans, alp, k);
+                ds.pop_back();
+            }
+        }
+    }
+    vector<string> letterCombinations(string digits) {
+
+        vector<vector<char>> keypad = {{},
+                                       {},
+                                       {'a', 'b', 'c'},
+                                       {'d', 'e', 'f'},
+                                       {'g', 'h', 'i'},
+                                       {'j', 'k', 'l'},
+                                       {'m', 'n', 'o'},
+                                       {'p', 'q', 'r', 's'},
+                                       {'t', 'u', 'v'},
+                                       {'w', 'x', 'y', 'z'}};
+        vector<vector<char>> alp;
+        for (char c : digits) {
+            int num = c - '0';
+
+            alp.push_back(keypad[num]);
+        }
+        vector<string> ans;
+        vector<char> ds;
+        int k = digits.size();
+        recur(0, ds, ans, alp, k);
+        return ans;
+    }
+};
