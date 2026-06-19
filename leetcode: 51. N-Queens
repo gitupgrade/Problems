@@ -1,0 +1,46 @@
+//https:https://leetcode.com/problems/n-queens/description/
+class Solution {
+public:
+    void solve(int col, vector<vector<string>>& ans, vector<string>& board,
+               vector<int>& left, vector<int>& uppd, vector<int>& downd,
+               int n) {
+        if (col == n) {
+            ans.push_back(board);
+            return;
+        }
+        for (int rows = 0; rows < n; rows++) {
+           
+            if (left[rows] == 0 && uppd[n - 1 + col - rows] == 0 &&
+                downd[rows + col] == 0) {
+                
+                board[rows][col] = 'Q';
+                left[rows] = 1;
+                uppd[n - 1 + col - rows] = 1;
+                downd[rows + col] = 1;
+                
+                solve(col + 1, ans, board, left, uppd, downd, n);
+                
+                board[rows][col] = '.';
+                left[rows] = 0;
+                uppd[n - 1 + col - rows] = 0;
+                downd[rows + col] = 0;
+            }
+        }
+    }
+
+    vector<vector<string>> solveNQueens(int n) {
+        vector<vector<string>> ans;
+        vector<string> board(n);
+        string s(n, '.'); 
+        
+        for (int i = 0; i < n; i++) {
+            board[i] = s;
+        }
+        
+       
+        vector<int> left(n, 0), uppd(2 * n - 1, 0), downd(2 * n - 1, 0);
+        solve(0, ans, board, left, uppd, downd, n);
+        
+        return ans; 
+    }
+};
