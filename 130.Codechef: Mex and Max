@@ -1,0 +1,52 @@
+//link: https://www.codechef.com/problems/MEXMAX7?tab=ide
+#include <bits/stdc++.h>
+using namespace std;
+const long long MOD=998244353;
+int main() {
+   int T;
+   cin>>T;
+   while(T--)
+
+{
+    int N;
+    cin>>N;
+    
+    vector<int> freq(N+1);
+    for(int i=0;i<N;i++)
+    {
+        int x;
+        cin>>x;
+        freq[x]++;
+    }
+    
+    vector<long long> power2(N+1,1);
+    for(int i=1;i<=N;i++)
+    {
+        power2[i]=power2[i-1]*2%MOD;
+    }
+    vector<long long> ways(N+1);
+    for(int x=0;x<=N;x++)
+    {
+        ways[x]=(power2[freq[x]]-1+MOD)%MOD;
+    }
+    
+    vector<long long> pref(N+1);
+    pref[0]=ways[0];
+    for(int k=1;k<=N;k++)
+    {
+        pref[k]=pref[k-1]*ways[k]%MOD;
+        
+    }
+    long long ans=0;
+    for(int k=0;k<=N;k++)
+    {
+      ans=(ans+pref[k])%MOD;
+    }
+      for (int k = 1; k <= N; k++) {
+            long long before = (k == 1 ? 1 : pref[k - 2]);
+            ans = (ans + before * ways[k]) % MOD;
+        }
+
+        cout << ans << '\n';
+}
+}
