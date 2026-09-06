@@ -1,0 +1,70 @@
+//link: https://www.codechef.com/problems/SKIPONE?tab=statement
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t-- > 0)
+    {
+        int n, k;
+        vector<int> v;
+        vector<int> a;
+
+        cin >> n >> k;
+
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            v.push_back(x);
+        }
+        int ind = 0;
+
+        auto process = [&]()
+        {
+            int i = ind;
+            while (i < n && v[i] <= k)
+            {
+
+                a.push_back(v[i]);
+
+                k = k - v[i];
+                i++;
+                ind = i;
+            }
+        };
+        process();
+        if (ind == 0)
+        {
+            a.push_back(v[ind]);
+            ind = ind + 1;
+            process();
+            cout << a.size() << endl;
+            continue;
+        }
+        if (ind >n - 1)
+        {
+
+            cout << n << endl;
+            continue;
+        }
+
+        int mx = *max_element(a.begin(), a.end());
+        if (mx <= v[ind])
+        {
+
+            a.push_back(v[ind]);
+            ind = ind + 1;
+            process();
+        }
+        else
+        {
+            k = k + mx;
+
+            process();
+        }
+        cout << a.size() << endl;
+    }
+}
