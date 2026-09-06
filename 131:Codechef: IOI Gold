@@ -1,0 +1,18 @@
+//link: https://www.codechef.com/problems/IOI7?tab=statement
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int G,N;
+   cin>>N;
+   cin>>G;
+  if(N>=G)
+{
+    cout<<"YES";
+    
+}
+else{
+    cout<<"NO";
+}
+
+}
