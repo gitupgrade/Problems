@@ -1,0 +1,38 @@
+//link: https://www.codechef.com/problems/MAXSUM77?tab=statement
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+
+    int t;
+    cin >> t;
+    while (t--> 0)
+    {
+        int n;
+        int k;
+        cin >> n >> k;
+        vector < int > v;
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            v.push_back(x);
+        }
+        int maxsum = 0;
+        int l = n - k;
+        for (int i = 0; i < l; i++)
+        {
+            maxsum += v[i];
+        }
+
+        int winsum = maxsum;
+        for (int j = l; j < n; j++)
+        {
+            winsum += v[j] - v[j - l];
+            maxsum = max(maxsum, winsum);
+        }
+        cout << maxsum << endl;
+    }
+
+}
