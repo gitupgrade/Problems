@@ -1,0 +1,13 @@
+//link: https://www.codechef.com/problems/MISSINGNUM7?tab=statement
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+        int s;
+        cin>>s;
+        int ans=10-s;
+        cout<<ans<<endl;
+    
+
+}
